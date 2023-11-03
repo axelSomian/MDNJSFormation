@@ -15,6 +15,7 @@
         <div class="articlesList">
         </div>
     </div>
+    <a href="cart.html">Voir la panier</a>
     <script>
         addedTocart=[]
 
@@ -43,6 +44,12 @@
 
             let button=document.createElement('button')
             button.setAttribute('id',articles[i].id)
+            button.addEventListener('click',(()=>{ 
+            addedTocart.push(button.id)
+            localStorage.setItem('toCart',addedTocart)
+            console.log(localStorage.toCart)
+            }
+              ))
             button.textContent='Ajouter au panier'
             // button.addEventListener('click',addToCart)
 
