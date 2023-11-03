@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./assets/articles.js"></script>
+
+</head>
+<body>
+    <h1>Eshop</h1>
+    <div>
+        <h2>Articles</h2>
+        <div class="articlesList">
+        </div>
+    </div>
+    <a href="cart.html">Voir la panier</a>
+    <script>
+        addedTocart=[]
+
+        let articlesList=document.querySelector('.articlesList')
+        // console.log(articles.length)
+        for(i=0;i<articles.length;i++){
+
+            let article=document.createElement('div')
+            article.setAttribute('class','article')
+
+            let name=document.createElement('p')
+            name.textContent=articles[i].name
+            name.setAttribute('class','articleName')
+
+            let description=document.createElement('p')
+            description.textContent=articles[i].description
+            description.setAttribute('class','articleDescription')
+
+            let price=document.createElement('p')
+            price.textContent=articles[i].price+"$"
+            price.setAttribute('class','articlePrice')
+
+            let cover=document.createElement('img')
+            cover.src=articles[i].cover
+            cover.setAttribute('class','articleCover')
+
+            let button=document.createElement('button')
+            button.setAttribute('id',articles[i].id)
+            button.addEventListener('click',(()=>{ 
+            addedTocart.push(button.id)
+            localStorage.setItem('toCart',addedTocart)
+            console.log(localStorage.toCart)
+            }
+              ))
+            button.textContent='Ajouter au panier'
+            // button.addEventListener('click',addToCart)
+
+            article.append(cover)
+            article.append(name)
+            article.append(description)
+            article.append(price)
+            article.append(button)
+            articlesList.append(article)
+        }
+    </script>
+</body>
+</html>

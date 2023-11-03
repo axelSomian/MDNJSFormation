@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./assets/articles.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Eshop</h1>
+    <div>
+        <h2>Panier</h2>
+        <div class="cartList">
+
+        </div>
+    </div>
+    <script>
+        let cartList=document.querySelector('.cartList')
+       let articlesTable=[]
+        let  idInCart=localStorage.toCart.split(',')
+
+        // Number(idInCart)
+            // console.log(idInCart)
+
+      for(i=0;i<idInCart.length;i++){
+            console.log(typeof(idInCart[i]))
+
+        for(j=0;j<articles.length;j++){
+            if(articles[j].id==idInCart[i]){
+                articlesTable.push(articles[j])
+            }
+        }
+    }
+   for(i=0;i<articlesTable.length;i++){
+    let article=document.createElement('p')
+    article.setAttribute('class','lineArticle')
+
+    let cover=document.createElement('img')
+    cover.src=articlesTable[i].cover
+    
+    let name=document.createElement('span')
+    name.textContent=articlesTable[i].name
+
+    let price=document.createElement('span')
+    price.textContent=articlesTable[i].price
+
+    article.append(cover)
+    article.append(name)
+    article.append(price)
+    cartList.append(article)
+
+   }
+   
+    </script>
+</body>
+</html>
