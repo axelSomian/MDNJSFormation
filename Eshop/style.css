@@ -49,3 +49,11 @@ button{
 span{
     margin: 10px;
 }
+.lineArticle{
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+.lineArticle img{
+    width: 50px;
+}

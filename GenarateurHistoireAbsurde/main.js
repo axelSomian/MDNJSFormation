@@ -17,10 +17,10 @@ let newStory=storyText
 randomize.addEventListener('click', result);
 
 function result() {
-
+  newStory=storyText
   if(customName.value !== '') {
     const name = customName.value;
-    newStory.replace('Bob',name)
+    newStory=newStory.replace('Bob',name)
 
 
   }
@@ -28,20 +28,24 @@ function result() {
   if(document.getElementById("uk").checked) {
     const weight = Math.round(300/14) + ' Stone';
     const temperature =  Math.round((94-32)/1.8)+' centigarde';
-    newStory.replace('94 fahrenheit',temperature)
-    newStory.replace('300 pounds',weight)
+    newStory=newStory.replace('94 fahrenheit',temperature)
+    newStory=newStory.replace('300 pounds',weight)
 
   }
 
-  story.textContent =newStory ;
-  story.style.visibility = 'visible';
+  
   let xItem=randomValueFromArray(insertX)
   let yItem=randomValueFromArray(insertY)
   let zItem=randomValueFromArray(insertZ)
+ 
 
  newStory= newStory.replace(':insertx:',xItem)
+ console.trace(newStory)
  newStory=newStory.replace(':inserty:',yItem)
  newStory= newStory.replace(':insertz:',zItem)
+ newStory= newStory.replace(':insertx:',xItem)
+ story.textContent =newStory ;
+story.style.visibility = 'visible';
 }
 // document.querySelector("html").style.backgroundColor = "red";
 
